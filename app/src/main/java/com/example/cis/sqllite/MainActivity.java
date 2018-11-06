@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,10 +30,12 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> RNameList;
 
+    Boolean first = true;
+
     EditText searchText;
     Button searchBtn;
     TextView noResult;
-
+    String allQuery = "select * from recipe";
     String[] categoryArr = {"All", "Main Dish", "Side Dish", "Salad", "Soup", "Desserts", "None"};
 
     @Override
@@ -47,12 +50,15 @@ public class MainActivity extends AppCompatActivity {
         searchBtn = findViewById(R.id.searchBtn);
         noResult = findViewById(R.id.noResult);
 
+
         mySpinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, categoryArr);
         mySpinner.setAdapter(mySpinnerAdapter);
 
+
+
         noResult.setVisibility(View.GONE);
 
-        String allQuery = "select * from recipe";
+
 
 
 
@@ -71,6 +77,27 @@ public class MainActivity extends AppCompatActivity {
 
 
         getResults(allQuery);
+
+        mySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String cat = categoryArr[position];
+                String catQuery = allQuery;
+                if(position != 0 && position != 6){
+                    catQuery = "select * from recipe where category = '" + cat + "';";
+
+                    if(first)first=false;
+                    if(!first && position != 6)
+                        getResults(catQuery);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
