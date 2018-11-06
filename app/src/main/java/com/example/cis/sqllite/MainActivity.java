@@ -110,12 +110,16 @@ public class MainActivity extends AppCompatActivity {
         int count = result.getCount();
         if(count >=1){
             //have results
+            noResult.setVisibility(View.GONE);
+            myList.setVisibility(View.VISIBLE);
             do{
                 RNameList.add(result.getString(1));
             }while(result.moveToNext());
 
         }else{
             //no results=
+            noResult.setVisibility(View.VISIBLE);
+            myList.setVisibility(View.GONE);
         }
 
         myListAdapter = new ArrayAdapter<String>(this, R.layout.list_item, RNameList);
