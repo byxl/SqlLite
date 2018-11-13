@@ -25,6 +25,7 @@ public class foodDetails extends AppCompatActivity {
     ImageView foodImgView;
     RatingBar ratingBar;
     Button ratingBtn;
+    Intent sentToMain;
     int foodId;
     float foodRating;
 
@@ -41,6 +42,7 @@ public class foodDetails extends AppCompatActivity {
         ratingBtn = findViewById(R.id.ratingBtn);
 
         Intent myIntent = getIntent();
+        sentToMain = new Intent(this, MainActivity.class);
         String foodName = myIntent.getStringExtra("foodName");
         String foodIng = myIntent.getStringExtra("foodIng");
         String foodPrep = myIntent.getStringExtra("foodPrep");
@@ -77,9 +79,11 @@ public class foodDetails extends AppCompatActivity {
                     updateQuery = "update recipe set rating = " + r + " where id = " + foodId + ";";
                     db.execSQL(updateQuery);
 
-                    Intent sentToMain = getIntent();
+                    //Intent sentToMain = getIntent();
                     sentToMain.putExtra("newRating", r);
                     setResult(RESULT_OK, sentToMain);
+                    foodDetails.this.startActivity(sentToMain);
+
                 }
             }
         });

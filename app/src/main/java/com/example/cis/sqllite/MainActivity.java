@@ -97,11 +97,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String cat = categoryArr[position];
-                String catQuery = allQuery;
-                if (position != 0 && position != 6) {
+                String catQuery;
+                String orderByRatingQuery="select * from recipe order by rating DESC;";
+                if (position != 0 && position != 6 && position != 7) {
                     catQuery = "select * from recipe where category = '" + cat + "';";
 
-                    if (first) first = false;
+
+                    if (position == 7)
+                        getResults(orderByRatingQuery);
+
+                        if (first) first = false;
                     if (!first && position != 6)
                         getResults(catQuery);
                     if (position != 6)
@@ -188,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+
         float newR = 0f;
         if (requestCode == 1) {
             if (resultCode == RESULT_OK)
