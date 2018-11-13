@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".foodDetails"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodNameTV"
+        style="@style/fd1"
+        android:text="Food Name"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingBar"
+        android:layout_gravity="center"
+        android:numStars="5"
+        android:stepSize="0.5"
+        android:rating="2.5"
+
+        />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/ratingBtn"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/foodImg"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/border"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/d1"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Ingredients"
+
+        style="@style/fd1"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Ingredients"
+        android:id="@+id/foodIngTv"
+        style="@style/fd2"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Preparation"
+        style="@style/fd1"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Preparation"
+        style="@style/fd2"
+        android:id="@+id/foodPrepTV"
+        />
+
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

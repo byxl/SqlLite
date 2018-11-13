@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
 
     <Spinner
+        android:id="@+id/mySpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/mySpinner"
         android:layout_marginBottom="10dp"
         android:background="@android:color/holo_orange_light">
 
@@ -22,43 +21,42 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp">
+
         <EditText
+            android:id="@+id/searchText"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:id="@+id/searchText"
-            android:textAlignment="center"
-            android:maxLines="1"
             android:background="@drawable/border"
+            android:maxLines="1"
+            android:textAlignment="center"
 
             />
+
         <Button
+            android:id="@+id/searchBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/searchBtn"
             android:backgroundTint="@android:color/holo_orange_light"
             android:text="Search"
-            android:textSize="18sp"
             android:textAllCaps="false"
-            />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/noResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Result Not Found"
-        android:id="@+id/noResult"
-        android:textSize="24sp"
-        android:textColor="#ff0000"
         android:layout_marginLeft="10dp"
-        />
+        android:text="Result Not Found"
+        android:textColor="#ff0000"
+        android:textSize="24sp" />
 
     <ListView
+        android:id="@+id/myList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/myList">
+        android:layout_height="match_parent">
 
     </ListView>
-
 
 
 </LinearLayout>
